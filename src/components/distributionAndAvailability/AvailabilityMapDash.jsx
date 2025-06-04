@@ -61,20 +61,20 @@ export default function AvailabilityMap({ selectedDate }) {
   );
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div className="relative w-full h-full">
       <DeckGL
         viewState={viewState}
         onViewStateChange={({ viewState: vs }) => setViewState(vs)}
-        controller={true}
+        controller
         layers={[scatterLayer]}
-        style={{ position: 'absolute', width: '100%', height: '100%' }}
+        className="absolute inset-0"
       >
         <Map
           {...viewState}
           onMove={({ viewState: vs }) => setViewState(vs)}
           mapStyle="mapbox://styles/mapbox/light-v11"
           mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
-          style={{ position: 'absolute', width: '100%', height: '100%' }}
+          className="absolute inset-0"
         />
       </DeckGL>
     </div>
